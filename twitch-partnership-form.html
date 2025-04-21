@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta di Partnership - zsormaxlive Twitch</title>
+    <style>
+        :root {
+            --twitch-purple: #9146FF;
+            --twitch-light-purple: #a970ff;
+            --twitch-dark: #0e0e10;
+            --twitch-darker: #18181b;
+            --twitch-lighter-bg: #1f1f23;
+            --twitch-light-text: #efeff1;
+            --twitch-gray: #3a3a3d;
+            --twitch-success: #00b15d;
+            --twitch-error: #f43b47;
+            --twitch-accent: #bf94ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Roobert', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--twitch-dark);
+            color: var(--twitch-light-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #772ce8 0%, var(--twitch-purple) 100%);
+            color: var(--twitch-light-text);
+            text-align: center;
+            padding: 50px 0;
+            border-radius: 16px 16px 0 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 42px;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            opacity: 0.9;
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-container {
+            background-color: var(--twitch-darker);
+            padding: 40px;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid var(--twitch-gray);
+            border-top: none;
+        }
+        
+        .form-section {
+            border-bottom: 1px solid var(--twitch-gray);
+            padding-bottom: 35px;
+            margin-bottom: 35px;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--twitch-light-purple);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--twitch-gray);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--twitch-purple);
+            margin-right: 12px;
+            border-radius: 3px;
+        }
+        
+        .section-description {
+            margin-bottom: 25px;
+            color: #adadb8;
+            font-size: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 0;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--twitch-light-text);
+            font-size: 15px;
+        }
+        
+        input[type="text"],
+        input[type="url"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--twitch-gray);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background-color: var(--twitch-lighter-bg);
+            color: var(--twitch-light-text);
+        }
+        
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--twitch-purple);
+            box-shadow: 0 0 0 2px rgba(145, 70, 255, 0.25);
+        }
+        
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23efeff1' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-5-5 1.5-1.5L8 8.5 11.5 5 13 6.5l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+        
+        .radio-group, .checkbox-group {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .toggle-group {
+            display: flex;
+            gap: 2px;
+            background-color: var(--twitch-gray);
+            border-radius: 8px;
+            padding: 3px;
+            width: fit-content;
+        }
+        
+        .toggle-option input[type="radio"] {
+            display: none;
+        }
+        
+        .toggle-option label {
+            display: block;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            margin: 0;
+            transition: all 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .toggle-option input[type="radio"]:checked + label {
+            background-color: var(--twitch-purple);
+            color: white;
+        }
+        
+        .checkbox-option {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            user-select: none;
+        }
+        
+        .checkbox-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 22px;
+            width: 22px;
+            background-color: var(--twitch-lighter-bg);
+            border: 2px solid var(--twitch-gray);
+            border-radius: 4px;
+        }
+        
+        .checkbox-option:hover input ~ .checkmark {
+            border-color: var(--twitch-accent);
+        }
+        
+        .checkbox-option input:checked ~ .checkmark {
+            background-color: var(--twitch-purple);
+            border-color: var(--twitch-purple);
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .checkbox-option input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .checkbox-option .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--twitch-error);
+        }
+        
+        button {
+            background: var(--twitch-purple);
+            color: var(--twitch-light-text);
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(145, 70, 255, 0.3);
+            display: block;
+            margin: 40px auto 0;
+            min-width: 220px;
+        }
+        
+        button:hover {
+            background: var(--twitch-light-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(145, 70, 255, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(145, 70, 255, 0.4);
+        }
+        
+        .alert {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0 10px;
+            font-weight: 500;
+            display: none;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .alert-success {
+            background-color: var(--twitch-success);
+            color: white;
+        }
+        
+        .alert-error {
+            background-color: var(--twitch-error);
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #adadb8;
+            font-size: 14px;
+            padding: 20px 0;
+        }
+        
+        /* Style for form number inputs */
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        
+        /* Helper text */
+        .helper-text {
+            font-size: 13px;
+            color: #adadb8;
+            margin-top: 6px;
+        }
+        
+        /* Animated background */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(128, 0, 255, 0.4) 0%, rgba(41, 15, 68, 0) 50%),
+                        radial-gradient(circle at 70% 30%, rgba(66, 13, 133, 0.6) 0%, rgba(41, 15, 68, 0) 50%);
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        .bg-animation::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        /* Progress indicator */
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .progress-container::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            right: 40px;
+            height: 4px;
+            background-color: var(--twitch-gray);
+            z-index: 1;
+        }
+        
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .step-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: var(--twitch-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .active-step .step-icon {
+            background-color: var(--twitch-purple);
+        }
+        
+        .completed-step .step-icon {
+            background-color: var(--twitch-accent);
+        }
+        
+        .step-text {
+            font-size: 14px;
+            color: #adadb8;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .active-step .step-text {
+            color: var(--twitch-light-text);
+            font-weight: 600;
+        }
+        
+        /* Range slider for viewership */
+        .range-slider {
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--twitch-gray);
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--twitch-purple);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--twitch-purple);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--twitch-light-purple);
+            font-size: 18px;
+        }
+        
+        /* Section highlight */
+        .highlight-box {
+            background-color: rgba(145, 70, 255, 0.1);
+            border-left: 4px solid var(--twitch-purple);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .highlight-title {
+            font-weight: 700;
+            color: var(--twitch-light-purple);
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 30px 0;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .progress-container {
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .progress-step {
+                min-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="bg-animation"></div>
+            <div class="header-content">
+                <img src="logo.png" alt="Logo zsormaxlive" class="logo">
+                <h1>Richiesta di Partnership</h1>
+                <p class="subtitle">zsormaxlive Twitch - Partnership Program</p>
+            </div>
+        </header>
+        
+        <div class="form-container">
+            <div class="progress-container">
+                <div class="progress-step active-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-text">Informazioni Server</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-text">Community</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-text">Contenuti</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-text">Partnership</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">5</div>
+                    <div class="step-text">Conferma</div>
+                </div>
+            </div>
+            
+            <form id="partnershipForm">
+                <div class="form-section">
+                    <h2 class="section-title">Informazioni Server</h2>
+                    <p class="section-description">Fornisci i dettagli principali del tuo server Discord per permetterci di valutare la tua richiesta di partnership.</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label for="serverName" class="required">Nome del server Discord</label>
+                            <input type="text" id="serverName" name="serverName" placeholder="Inserisci il nome del tuo server" required>
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label for="serverCreationDate" class="required">Data creazione server</label>
+                            <input type="date" id="serverCreationDate" name="serverCreationDate" required>
+                            <p class="helper-text">I server devono avere almeno 3 mesi di attività</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label for="inviteLink" class="required">Link d'invito al server</label>
+                            <input type="url" id="inviteLink" name="inviteLink" placeholder="https://discord.gg/..." required>
+                            <p class="helper-text">Assicurati che il link non scada</p>
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label for="discordId" class="required">ID Discord del richiedente</label>
+                            <input type="text" id="discordId" name="discordId" placeholder="username#0000" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label for="totalMembers" class="required">Numero totale di membri</label>
+                            <input type="number" id="totalMembers" name="totalMembers" min="1" placeholder="Es. 500" required>
+                            <p class="helper-text">Il numero minimo di membri richiesto è 200</p>
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label for="activeMembers" class="required">Membri attivi giornalieri (stima)</label>
+                            <input type="number" id="activeMembers" name="activeMembers" min="1" placeholder="Es. 100" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="communityType" class="required">Tipologia della community</label>
+                        <select id="communityType" name="communityType" required>
+                            <option value="">Seleziona una tipologia</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Chill">Chill</option>
+                            <option value="Supporto">Supporto</option>
+                            <option value="Musica">Musica</option>
+                            <option value="Arte">Arte</option>
+                            <option value="Studio">Studio</option>
+                            <option value="Streaming">Streaming</option>
+                            <option value="Altro">Altro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="specificCommunityType" style="display:none;">
+                        <label for="otherCommunityType" class="required">Specifica la tipologia</label>
+                        <input type="text" id="otherCommunityType" name="otherCommunityType" placeholder="Descrivi la tipologia della tua community">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">Dettagli Community</h2>
+                    <p class="section-description">Aiutaci a conoscere meglio la tua community e il modo in cui la gestisci.</p>
+                    
+                    <div class="form-group">
+                        <label class="required">Fascia d'età principale della community</label>
+                        <div class="radio-group">
+                            <div class="toggle-group">
+                                <div class="toggle-option">
+                                    <input type="radio" id="age13-17" name="ageRange" value="13-17" required>
+                                    <label for="age13-17">13-17</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="age18-24" name="ageRange" value="18-24">
+                                    <label for="age18-24">18-24</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="age25-34" name="ageRange" value="25-34">
+                                    <label for="age25-34">25-34</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="age35plus" name="ageRange" value="35+">
+                                    <label for="age35plus">35+</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="ageMixed" name="ageRange" value="Mista">
+                                    <label for="ageMixed">Mista</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Lingue principali utilizzate nella community</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                Italiano
+                                <input type="checkbox" name="languages" value="Italiano" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Inglese
+                                <input type="checkbox" name="languages" value="Inglese">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Spagnolo
+                                <input type="checkbox" name="languages" value="Spagnolo">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Francese
+                                <input type="checkbox" name="languages" value="Francese">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Tedesco
+                                <input type="checkbox" name="languages" value="Tedesco">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Altra
+                                <input type="checkbox" name="languages" value="Altra" id="otherLanguageCheck">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="otherLanguageField" style="display:none;">
+                        <label for="otherLanguage">Specifica altra lingua</label>
+                        <input type="text" id="otherLanguage" name="otherLanguage" placeholder="Inserisci la lingua">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Staff del server</label>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="moderatorsCount" class="required">Numero di moderatori</label>
+                                <input type="number" id="moderatorsCount" name="moderatorsCount" min="0" placeholder="Es. 5" required>
+                            </div>
+                            <div class="form-col">
+                                <label for="adminCount" class="required">Numero di amministratori</label>
+                                <input type="number" id="adminCount" name="adminCount" min="1" placeholder="Es. 2" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="communityRules" class="required">Regolamento della community</label>
+                        <textarea id="communityRules" name="communityRules" rows="4" placeholder="Descrivi brevemente le regole principali del tuo server..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Utilizzi un bot per la moderazione?</label>
+                        <div class="radio-group">
+                            <div class="toggle-group">
+                                <div class="toggle-option">
+                                    <input type="radio" id="modBotYes" name="moderationBot" value="Sì" required>
+                                    <label for="modBotYes">Sì</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="modBotNo" name="moderationBot" value="No">
+                                    <label for="modBotNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="modBotDetails" style="display:none;">
+                        <label for="moderationBotName">Nome dei bot utilizzati per la moderazione</label>
+                        <input type="text" id="moderationBotName" name="moderationBotName" placeholder="Es. MEE6, Dyno, etc.">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">Contenuti e Attività</h2>
+                    <p class="section-description">Descrivici le attività e i contenuti che offri alla tua community.</p>
+                    
+                    <div class="form-group">
+                        <label class="required">Tipologia di contenuti principali</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                Gameplay
+                                <input type="checkbox" name="contentTypes" value="Gameplay">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Just Chatting
+                                <input type="checkbox" name="contentTypes" value="Just Chatting">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                IRL
+                                <input type="checkbox" name="contentTypes" value="IRL">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Creative
+                                <input type="checkbox" name="contentTypes" value="Creative">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Musica
+                                <input type="checkbox" name="contentTypes" value="Musica">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Educational
+                                <input type="checkbox" name="contentTypes" value="Educational">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Esports
+                                <input type="checkbox" name="contentTypes" value="Esports">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Altro
+                                <input type="checkbox" name="contentTypes" value="Altro" id="otherContentCheck">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="otherContentField" style="display:none;">
+                        <label for="otherContentType">Specifica altra tipologia di contenuto</label>
+                        <input type="text" id="otherContentType" name="otherContentType" placeholder="Descrivi il tipo di contenuto">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mainGames" class="required">Giochi principali (se applicabile)</label>
+                        <input type="text" id="mainGames" name="mainGames" placeholder="Es. Fortnite, Minecraft, League of Legends...">
+                        <p class="helper-text">Lascia vuoto se non si applica alla tua community</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="streamSchedule" class="required">Programma degli stream</label>
+                        <textarea id="streamSchedule" name="streamSchedule" rows="3" placeholder="Descrivi i giorni e gli orari degli stream..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Media di spettatori per stream</label>
+                        <div class="range-slider">
+                            <input type="range" min="0" max="1000" value="50" class="slider" id="viewershipRange" step="10">
+                            <div class="slider-value" id="viewershipValue">50 spettatori</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="activities" class="required">Attività svolte nel server</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                Eventi speciali
+                                <input type="checkbox" name="serverActivities" value="Eventi speciali">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Giveaway
+                                <input type="checkbox" name="serverActivities" value="Giveaway">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Tornei
+                                <input type="checkbox" name="serverActivities" value="Tornei">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Game night
+                                <input type="checkbox" name="serverActivities" value="Game night">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Q&A
+                                <input type="checkbox" name="serverActivities" value="Q&A">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-option">
+                                Watchparty
+                                <input type="checkbox" name="serverActivities" value="Watchparty">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDetails">Descrivi un evento tipico del tuo server</label>
+                        <textarea id="eventDetails" name="eventDetails" rows="3" placeholder="Fornisci dettagli su un evento tipico che organizzi..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">Social e Collegamenti</h2>
+                    <p class="section-description">Condividi con noi i tuoi profili sui social media e altre piattaforme.</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label for="twitchLink" class="required">Link al canale Twitch</label>
+                            <input type="url" id="twitchLink" name="twitchLink" placeholder="https://twitch.tv/..." required>
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label for="youtubeLink">Link al canale YouTube (opzionale)</label>
+                            <input type="url" id="youtubeLink" name="youtubeLink" placeholder="https://youtube.com/...">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label for="instagramLink">Link al profilo Instagram (opzionale)</label>
+                            <input type="url" id="instagramLink" name="instagramLink" placeholder="https://instagram.com/...">
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label for="tiktokLink">Link al profilo TikTok (opzionale)</label>
+                            <input type="url" id="tiktokLink" name="tiktokLink" placeholder="https://tiktok.com/@...">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label for="twitterLink">Link al profilo Twitter/X (opzionale)</label>
+                            <input type="url" id="twitterLink" name="twitterLink" placeholder="https://twitter.com/...">
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label for="otherSocialLink">Altri social (opzionale)</label>
+                            <input type="text" id="otherSocialLink" name="otherSocialLink" placeholder="Inserisci altri link ai social...">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="twitchAffiliation" class="required">Stato su Twitch</label>
+                        <select id="twitchAffiliation" name="twitchAffiliation" required>
+                            <option value="">Seleziona il tuo stato</option>
+                            <option value="Streamer">Streamer (non affiliato)</option>
+                            <option value="Affiliato">Affiliato</option>
+                            <option value="Partner">Partner</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="followersCount" class="required">Numero totale di follower su Twitch</label>
+                        <input type="number" id="followersCount" name="followersCount" min="0" placeholder="Es. 1000" required>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">Dettagli Partnership</h2>
+                    <p class="section-description">Informazioni sulla partnership richiesta e sulla tua esperienza precedente.</p>
+                    
+                    <div class="highlight-box">
+                        <h3 class="highlight-title">Tipi di Partnership Disponibili</h3>
+                        <p><strong>Standard:</strong> Canale dedicato per partnership, menzioni occasionali durante gli stream, accesso a server esclusivi.</p>
+                        <p><strong>Élite:</strong> Tutti i benefici Standard più promozione nei social, partecipazione ad eventi esclusivi, possibilità di collaborazioni dirette.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Tipo di partnership richiesta</label>
+                        <div class="radio-group">
+                            <div class="toggle-group">
+                                <div class="toggle-option">
+                                    <input type="radio" id="standard" name="partnershipType" value="Standard" required>
+                                    <label for="standard">Standard</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="elite" name="partnershipType" value="Élite">
+                                    <label for="elite">Élite</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-col">
+                            <label class="required">Sistema partnership attivo</label>
+                            <div class="toggle-group">
+                                <div class="toggle-option">
+                                    <input type="radio" id="hasPartnerYes" name="hasPartnerSystem" value="Sì" required>
+                                    <label for="hasPartnerYes">Sì</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="hasPartnerNo" name="hasPartnerSystem" value="No">
+                                    <label for="hasPartnerNo">No</label>
+                                </div>
+                            </div>
+                            <p class="helper-text">Hai già un sistema di partnership attivo nel tuo server?</p>
+                        </div>
+                        
+                        <div class="form-group form-col">
+                            <label class="required">Canale dedicato per partnership</label>
+                            <div class="toggle-group">
+                                <div class="toggle-option">
+                                    <input type="radio" id="dedicatedChannelYes" name="dedicatedChannel" value="Sì" required>
+                                    <label for="dedicatedChannelYes">Sì</label>
+                                </div>
+                                <div class="toggle-option">
+                                    <input type="radio" id="dedicatedChannelNo" name="dedicatedChannel" value="No">
+                                    <label for="dedicatedChannelNo">No</label>
+                                </div>
+                            </div>
+                            <p class="helper-text">Disponi di un canale dedicato per i partner?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currentPartners">Collaborazioni o partnership attuali (opzionale)</label>
+                        <textarea id="currentPartners" name="currentPartners" rows="3" placeholder="Descrivi eventuali partnership già attive..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="partnershipExpectations" class="required">Cosa ti aspetti da questa partnership?</label>
+                        <textarea id="partnershipExpectations" name="partnershipExpectations" rows="4" placeholder="Descrivi le tue aspettative e obiettivi..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="partnershipOffer" class="required">Cosa puoi offrire in cambio?</label>
+                        <textarea id="partnershipOffer" name="partnershipOffer" rows="4" placeholder="Descrivi i vantaggi che puoi offrire alla nostra community..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Note aggiuntive o info extra (opzionale)</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Scrivi qui eventuali dettagli aggiuntivi..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-option">
+                        Ho letto e accetto i termini e le condizioni del programma partnership
+                        <input type="checkbox" name="termsAgreed" value="accepted" required>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-option">
+                        Acconsento al trattamento dei miei dati personali per la valutazione della richiesta
+                        <input type="checkbox" name="privacyAgreed" value="accepted" required>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+                <button type="submit">Invia Richiesta</button>
+            </form>
+            
+            <div id="successAlert" class="alert alert-success">
+                Richiesta inviata con successo! Riceverai un riscontro entro 5-7 giorni lavorativi.
+            </div>
+            
+            <div id="errorAlert" class="alert alert-error">
+                Si è verificato un errore durante l'invio della richiesta. Riprova più tardi.
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 zsormaxlive Twitch - Tutti i diritti riservati</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('partnershipForm');
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            const viewershipRange = document.getElementById('viewershipRange');
+            const viewershipValue = document.getElementById('viewershipValue');
+            const otherLanguageCheck = document.getElementById('otherLanguageCheck');
+            const otherLanguageField = document.getElementById('otherLanguageField');
+            const communityType = document.getElementById('communityType');
+            const specificCommunityType = document.getElementById('specificCommunityType');
+            const modBotYes = document.getElementById('modBotYes');
+            const modBotNo = document.getElementById('modBotNo');
+            const modBotDetails = document.getElementById('modBotDetails');
+            const otherContentCheck = document.getElementById('otherContentCheck');
+            const otherContentField = document.getElementById('otherContentField');
+            
+            // Funzione per nascondere gli alert
+            function hideAlerts() {
+                successAlert.style.display = 'none';
+                errorAlert.style.display = 'none';
+            }
+            
+            // Aggiorna il valore mostrato dello slider
+            viewershipRange.oninput = function() {
+                viewershipValue.innerHTML = this.value + " spettatori";
+            }
+            
+            // Mostra/nascondi campo lingua personalizzata
+            otherLanguageCheck.addEventListener('change', function() {
+                otherLanguageField.style.display = this.checked ? 'block' : 'none';
+            });
+            
+            // Mostra/nascondi campo comunità personalizzata
+            communityType.addEventListener('change', function() {
+                specificCommunityType.style.display = this.value === 'Altro' ? 'block' : 'none';
+            });
+            
+            // Mostra/nascondi dettagli bot moderazione
+            modBotYes.addEventListener('change', function() {
+                if(this.checked) modBotDetails.style.display = 'block';
+            });
+            
+            modBotNo.addEventListener('change', function() {
+                if(this.checked) modBotDetails.style.display = 'none';
+            });
+            
+            // Mostra/nascondi campo contenuto personalizzato
+            otherContentCheck.addEventListener('change', function() {
+                otherContentField.style.display = this.checked ? 'block' : 'none';
+            });
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                hideAlerts();
+                
+                // Raccogli tutti i dati dal form
+                const formData = new FormData(form);
+                const formDataObj = {};
+                
+                formData.forEach((value, key) => {
+                    if (!formDataObj[key]) {
+                        formDataObj[key] = value;
+                    } else {
+                        if (!Array.isArray(formDataObj[key])) {
+                            formDataObj[key] = [formDataObj[key]];
+                        }
+                        formDataObj[key].push(value);
+                    }
+                });
+                
+                // Costruisci l'embed per Discord
+                const currentDate = new Date().toLocaleDateString('it-IT');
+                const currentTime = new Date().toLocaleTimeString('it-IT');
+                
+                const embed = {
+                    title: "Nuova Richiesta di Partnership",
+                    color: 0x9146FF, // Colore Twitch purple
+                    timestamp: new Date().toISOString(),
+                    author: {
+                        name: "zsormaxlive Twitch - Partnership Program",
+                    },
+                    footer: {
+                        text: `Inviata il ${currentDate} alle ${currentTime}`
+                    },
+                    fields: [
+                        // Sezione Server
+                        {
+                            name: "📋 **Informazioni Server**",
+                            value: `**Nome:** ${formDataObj.serverName}\n**Data creazione:** ${formDataObj.serverCreationDate}\n**Membri totali:** ${formDataObj.totalMembers}\n**Membri attivi:** ${formDataObj.activeMembers}\n**Tipologia:** ${formDataObj.communityType}${formDataObj.communityType === 'Altro' ? ` (${formDataObj.otherCommunityType})` : ''}`,
+                        },
+                        {
+                            name: "👥 **Community**",
+                            value: `**Fascia età:** ${formDataObj.ageRange}\n**Moderatori:** ${formDataObj.moderatorsCount}\n**Amministratori:** ${formDataObj.adminCount}\n**Bot Moderazione:** ${formDataObj.moderationBot}${formDataObj.moderationBot === 'Sì' ? ` (${formDataObj.moderationBotName})` : ''}`
+                        },
+                        {
+                            name: "🎮 **Contenuti e Social**",
+                            value: `**Giochi:** ${formDataObj.mainGames || 'Non specificato'}\n**Spettatori:** ~${viewershipRange.value}\n**Stato Twitch:** ${formDataObj.twitchAffiliation}\n**Follower:** ${formDataObj.followersCount}`
+                        },
+                        {
+                            name: "🔗 **Link**",
+                            value: `**Discord:** ${formDataObj.inviteLink}\n**Twitch:** ${formDataObj.twitchLink}\n${formDataObj.youtubeLink ? `**YouTube:** ${formDataObj.youtubeLink}\n` : ''}${formDataObj.instagramLink ? `**Instagram:** ${formDataObj.instagramLink}\n` : ''}${formDataObj.tiktokLink ? `**TikTok:** ${formDataObj.tiktokLink}\n` : ''}${formDataObj.twitterLink ? `**Twitter/X:** ${formDataObj.twitterLink}` : ''}`
+                        },
+                        {
+                            name: "🤝 **Partnership**",
+                            value: `**Tipo richiesto:** ${formDataObj.partnershipType}\n**Sistema attivo:** ${formDataObj.hasPartnerSystem}\n**Canale dedicato:** ${formDataObj.dedicatedChannel}`
+                        }
+                    ]
+                };
+                
+                // Aggiungi note e aspettative se presenti
+                if (formDataObj.partnershipExpectations) {
+                    embed.fields.push({
+                        name: "✨ **Aspettative**",
+                        value: formDataObj.partnershipExpectations
+                    });
+                }
+                
+                if (formDataObj.partnershipOffer) {
+                    embed.fields.push({
+                        name: "🎁 **Offerta**",
+                        value: formDataObj.partnershipOffer
+                    });
+                }
+                
+                if (formDataObj.notes && formDataObj.notes.trim() !== '') {
+                    embed.fields.push({
+                        name: "📝 **Note Aggiuntive**",
+                        value: formDataObj.notes
+                    });
+                }
+                
+                // Prepara il payload per il webhook
+                const payload = {
+                    embeds: [embed]
+                };
+                
+                // Sostituisci con l'URL del tuo webhook Discord
+                const webhookUrl = "https://discord.com/api/webhooks/1363820531047989450/Lm0tB0Hmk0a2mWc1jVYQERoII12l0b-KcYCau4ReedHHUPu9HbAR2aKCMVbdxOQORrnl";
+                
+                // Logging dei dati (opzionale, puoi rimuoverlo in produzione)
+                console.log("Dati form:", formDataObj);
+                console.log("Payload webhook:", payload);
+                
+                // Invio effettivo dei dati al webhook Discord
+                fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Mostra messaggio di successo
+                        successAlert.style.display = 'block';
+                        form.reset(); // Resetta il form
+                        
+                        // Ripristina i valori predefiniti degli elementi UI personalizzati
+                        viewershipRange.value = 50;
+                        viewershipValue.innerHTML = "50 spettatori";
+                        otherLanguageField.style.display = 'none';
+                        specificCommunityType.style.display = 'none';
+                        modBotDetails.style.display = 'none';
+                        otherContentField.style.display = 'none';
+                        
+                        // Nascondi il messaggio dopo 5 secondi
+                        setTimeout(() => {
+                            successAlert.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error('Errore nella risposta del server');
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    errorAlert.style.display = 'block';
+                    
+                    // Nascondi il messaggio dopo 5 secondi
+                    setTimeout(() => {
+                        errorAlert.style.display = 'none';
+                    }, 5000);
+                });
+                
+                /* Codice di simulazione commentato - non più necessario
+                // Per test, mostra sempre il messaggio di successo
+                successAlert.style.display = 'block';
+                form.reset();
+                
+                // Ripristina i valori predefiniti degli elementi UI personalizzati
+                viewershipRange.value = 50;
+                viewershipValue.innerHTML = "50 spettatori";
+                otherLanguageField.style.display = 'none';
+                specificCommunityType.style.display = 'none';
+                modBotDetails.style.display = 'none';
+                otherContentField.style.display = 'none';
+                
+                // Nascondi il messaggio dopo 5 secondi
+                setTimeout(() => {
+                    successAlert.style.display = 'none';
+                }, 5000);
+                */
+            });
+        });
+    </script>
+</body>
+</html>
+                
